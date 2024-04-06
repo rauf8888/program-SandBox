@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Html-Document Type</title>
+    <link rel="stylesheet" href="Z:\KCT\Sem_4\Internet_Web_Programming\Lab_Experiments\Foms\form.css">
+</head>
+<body>
+
+    <h2 style="color: blue; font-family: Arial, sans-serif;">User Information Form</h2>
+
+<form method="post" onsubmit="return validateForm()">
+  <label for="name">Name:</label><br>
+  <input type="text" id="name" name="name" required><br><br>
+
+  <label for="roll_number">Roll Number:</label><br>
+  <input type="text" id="roll_number" name="roll_number" required><br><br>
+
+  <label for="dob">Date of Birth:</label><br>
+  <input type="date" id="dob" name="dob" required><br><br>
+
+  <label for="email">Email ID:</label><br>
+  <input type="email" id="email" name="email" required><br><br>
+  
+  <label for="password">Enter Password:</label><br>
+  <input type="password" id="password" name="password" required><br><br>
+
+  <input type="submit" value="Submit" class="submit-button">
+</form>
+
+<style>
+    label {
+      font-weight: bold;
+      color: #333;
+      font-family: Arial, sans-serif;
+    }
+</style>
+
+<script>
+    function validateForm() {
+    var password = document.getElementById("password").value;
+
+    if (password.length < 8) {
+        alert("Password must be at least 8 characters long");
+        return false;
+    }
+    var hasAlphabet = /[a-zA-Z]/.test(password);
+    var hasNumber = /\d/.test(password);
+    var hasSpecialChar = /[!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?]+/.test(password);
+
+    if (!hasAlphabet || !hasNumber || !hasSpecialChar) {
+        alert("Password must contain at least one alphabet, one number, and one special character");
+        return false;
+    }
+    else{
+        alert("Registered Succesfully!")
+    }
+
+    return true;
+}
+</script>
+
+</body>
+</html>
